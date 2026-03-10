@@ -35,7 +35,6 @@ const MainLayout = ({
             {notesBtn}
           </div>
         </div>
-        {children}
       </div>
     </div>
 
