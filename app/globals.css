@@ -1,26 +1,104 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-Neutral-950: #0e121b;
+  --color-Neutral-900: #191b25;
+  --color-Neutral-800: #232530;
+  --color-Neutral-700: #2b303b;
+  --color-Neutral-600: #525866;
+  --color-Neutral-500: #717784;
+  --color-Neutral-400: #99a0ae;
+  --color-Neutral-300: #cacfd8;
+  --color-Neutral-200: #e0e4ea;
+  --color-Neutral-100: #f3f5f8;
+  --color-Neutral-50: #f5f7fa;
+  --color-Neutral-0: #ffffff;
+  --color-Blue-700: #2547d0;
+  --color-Blue-500: #335cff;
+  --color-Blue-50: #ebf1ff;
+  --color-Green-500: #21c16b;
+  --color-Green-100: #d1fbe9;
+  --color-Red-500: #fb3748;
+  --color-Red-100: #ffd5d8;
+  --font-inter: var(--font-inter), sans-serif;
+  --font-noto: var(--font-noto-serif), serif;
+  --font-source: var(--font-source-code-pro), monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@layer base {
+  body {
+    @apply font-inter;
+  }
 }
+@layer components {
+  .text-preset-1 {
+    @apply text-2xl leading-[120%] font-bold tracking-[-.5px];
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  .text-preset-2 {
+    @apply text-xl leading-[120%] font-bold tracking-[-.5px];
+  }
+
+  .text-preset-3 {
+    @apply text-base leading-[120%] font-semibold tracking-[-.5px];
+  }
+
+  .text-preset-4 {
+    @apply text-sm leading-[120%] font-medium tracking-[-.5px];
+  }
+
+  .text-preset-5 {
+    @apply text-sm leading-[120%] font-normal tracking-[-.5px];
+  }
+
+  .text-preset-6 {
+    @apply text-xs leading-[120%] font-normal tracking-[-.5px];
+  }
+  .radius-0 {
+    @apply rounded-none;
+  }
+  .radius-4 {
+    @apply rounded-sm;
+  }
+  .radius-6 {
+    @apply rounded-md;
+  }
+  .radius-8 {
+    @apply rounded-lg;
+  }
+  .radius-10 {
+    @apply rounded-[10px];
+  }
+  .radius-12 {
+    @apply rounded-xl;
+  }
+  .radius-16 {
+    @apply rounded-2xl;
+  }
+  .radius-20 {
+    @apply rounded-[20px];
+  }
+  .radius-24 {
+    @apply rounded-3xl;
+  }
+  .radius-full {
+    @apply rounded-full;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .box-shadows-custom {
+    box-shadow: 0px -4px 6px rgba(240, 240, 240, 0.6);
+  }
+  .box-shadows-custom-dark {
+    box-shadow: 0px -4px 6px rgba(220, 130, 120, 1);
+  }
+
+  .scrollbar-hide {
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }

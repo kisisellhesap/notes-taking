@@ -1,15 +1,27 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Noto_Serif, Source_Code_Pro } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "next-themes";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// const notoSerif = Noto_Serif({
+//   variable: "--font-noto-serif",
+//   subsets: ["latin"],
+//   // Regular: 400, Medium: 500, SemiBold: 600, Bold: 700
+//   weight: ["400", "500", "600", "700"],
+// });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// const sourceCodePro = Source_Code_Pro({
+//   variable: "--font-source-code-pro",
+//   subsets: ["latin"],
+//   // Regular: 400, Medium: 500, SemiBold: 600, Bold: 700
+//   weight: ["400", "500", "600", "700"],
+// });
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  // Regular: 400, Medium: 500, SemiBold: 600, Bold: 700
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -23,11 +35,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="en" suppressHydrationWarning={true}>
+      <body className={`${inter.variable} antialiased bg-white dark:bg-Neutral-950`}>
+        <ThemeProvider attribute="class" defaultTheme="light">
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
